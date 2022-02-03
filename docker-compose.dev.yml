@@ -5,15 +5,14 @@ services:
     image: cuddly-carnival-frontend-dev:1.0.0
     build:
       context: ./frontend
-      target: development
-      dockerfile: Dockerfile
+      dockerfile: dev.Dockerfile
     ports:
       - 3000:3000
     networks:
       - cuddly-network
     volumes: 
-      - ./frontend/:/usr/src/app
-      - /usr/src/app/node_modules
+      - ./frontend/:/app
+      - /app/node_modules
 
   backend:
     container_name: cuddly_carnival_backend_dev

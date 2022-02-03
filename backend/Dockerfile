@@ -1,11 +1,9 @@
 FROM node:16-alpine AS development
 WORKDIR /usr/src/app
 COPY package*.json ./
-RUN ls -la
 RUN npm install glob rimraf
 RUN npm install --only=development
 COPY . .
-RUN ls -la
 RUN npm run build
 
 FROM node:16-alpine AS production
